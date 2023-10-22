@@ -18,7 +18,7 @@ def passeios(x, r, g, b, avanco, head):
         r = random.randint(0,255)
         g = random.randint(0,255)
         b = random.randint(0,255)
-        avanco = float(random.randint(0,200))
+        avanco = float(random.randint(0,100))
         head = float(random.randint(0,360))
         turtle.color(r, g, b)
         turtle.forward(avanco)
