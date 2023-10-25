@@ -1,6 +1,7 @@
 import turtle
 
-angulo = 0
+turtle.speed(5)
+angulo = 20
 avanco = 0
 
 def quadrados(angulo, avanco):
