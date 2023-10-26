@@ -17,6 +17,9 @@ def relogio(angulo):
         turtle.setposition(0,0)
         angulo += 30
         
+    #fonte2 = ("Comic Sans", 20, "normal") para escrever coisas
+    #turtle.write("de", False, "center", fonte2)
+        
 relogio(angulo)
 
 turtle.exitonclick()
