@@ -1,7 +1,7 @@
 import turtle
 import random
 
-turtle.speed(1)
+turtle.speed(50)
 
 dimensao = int(input("Introduza a dimensão da grelha: "))
 numero = dimensao / 8
