@@ -2,6 +2,7 @@ import turtle
 import random
 
 turtle.speed(50)
+turtle.bgcolor("black")
 
 dimensao = int(input("Introduza a dimensão da grelha: "))
 numero = dimensao / 8
@@ -11,6 +12,7 @@ conta_inteira = int(numero)
 avanco = numero % 1
 
 def quadrado(dimensao, numero_inteiro):
+    turtle.color("white")
     turtle.penup()
     turtle.setposition(-(dimensao/2), dimensao/2)
     turtle.pendown()
@@ -35,14 +37,6 @@ def quadrado(dimensao, numero_inteiro):
         turtle.back(dimensao)
         turtle.left(90)
 
-if (avanco != 0):
-        print("Medidas inválidas. ")
-else:
-    if (numero_valido != 0):
-        print("Não é possível efetuar a grelha. ")
-    else:
-        quadrado(dimensao, numero_inteiro)
-
 def posicao():        
     turtle.penup()
     turtle.setposition(0,0)
@@ -54,7 +48,7 @@ def posicao():
     turtle.shape("classic")
 
 def andar(numero_inteiro):
-    numero = random.randint(1,100)
+    numero = random.randint(50,100)
     for i in range(numero):
         direcao = random.randint(1,4)
 
@@ -70,18 +64,25 @@ def andar(numero_inteiro):
         turtle.forward(numero_inteiro)
         
         print(turtle.position())
-        #este
-        if (turtle.position() > (-(dimensao/2), -dimensao/2)):
-            print("olá")
-        if (turtle.position() > (-(dimensao/2), dimensao/2)):
-            print("adeus")
-        if (turtle.position() > ((dimensao/2), -dimensao/2)):
-            print("até")
-        if (turtle.position() > (-(dimensao/2), dimensao/2)):
-            print("logo")
-        #verificar este bloco
         
-posicao()    
-andar(numero_inteiro)
+        if (turtle.xcor() < (-(dimensao/2))):
+            print("A tartaruga vai sair da grelha. Acabou o jogo.")
+            break   
+        elif (turtle.xcor() > (dimensao/2)):
+            print("A tartaruga vai sair da grelha. Acabou o jogo.")
+            break 
+        elif (turtle.ycor() < (-(dimensao/2))):
+            print("A tartaruga vai sair da grelha. Acabou o jogo.")
+            break 
+        elif (turtle.ycor() > (dimensao/2)):
+            print("A tartaruga vai sair da grelha. Acabou o jogo.")
+            break
+
+if (numero_valido != 0):
+    print("Não é possível efetuar a grelha. ")
+else:
+    quadrado(dimensao, numero_inteiro)        
+    posicao()    
+    andar(numero_inteiro)
 
 turtle.exitonclick()
