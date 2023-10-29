@@ -49,7 +49,7 @@ def posicaoInicial():
     turtle.shape("classic")
 
 def andar(tamanhoCasa):
-    numeroDeslocacoes = random.randint(500,1000)
+    numeroDeslocacoes = random.randint(50,100)
     maxX = maxY = dimensao // 2
     minX = minY = -maxX
 
