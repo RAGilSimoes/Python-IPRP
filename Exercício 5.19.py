@@ -5,39 +5,40 @@ turtle.speed(50)
 turtle.bgcolor("black")
 
 dimensao = int(input("Introduza a dimensão da grelha: "))
-numero = dimensao / 8
-numero_inteiro = int(numero)
-numero_valido = dimensao % 8
-conta_inteira = int(numero)
-avanco = numero % 1
+tamanhoCasa = dimensao // 8
+tamanhoInvalido = dimensao % 8
 
-def quadrado(dimensao, numero_inteiro):
+def quadrado(dimensao, tamanhoCasa):
     turtle.color("white")
     turtle.penup()
     turtle.setposition(-(dimensao/2), dimensao/2)
     turtle.pendown()
 
+    #Desenha Quadrado
     for i in range(4):
         turtle.forward(dimensao)
         turtle.right(90)
-    
+
+    #Desenha Colunas
     for i in range(8):
-        turtle.forward(numero_inteiro)
+        turtle.forward(tamanhoCasa)
         turtle.right(90)
         turtle.forward(dimensao)
         turtle.back(dimensao)
         turtle.left(90)
 
+    #Pivot
     turtle.right(90)
 
+    #Desenha Linhas
     for i in range(8):
-        turtle.forward(numero_inteiro)
+        turtle.forward(tamanhoCasa)
         turtle.right(90)
         turtle.forward(dimensao)
         turtle.back(dimensao)
         turtle.left(90)
 
-def posicao():        
+def posicaoInicial():
     turtle.penup()
     turtle.setposition(0,0)
     turtle.pendown()
@@ -47,42 +48,39 @@ def posicao():
     turtle.stamp()
     turtle.shape("classic")
 
-def andar(numero_inteiro):
-    numero = random.randint(50,100)
-    for i in range(numero):
-        direcao = random.randint(1,4)
+def andar(tamanhoCasa):
+    numeroDeslocacoes = random.randint(500,1000)
+    maxX = maxY = dimensao // 2
+    minX = minY = -maxX
 
-        if direcao == 1:
-            turtle.setheading(0)
-        elif direcao == 2:
-            turtle.setheading(90)
-        elif direcao == 3:
-            turtle.setheading(180)
-        elif direcao == 4:
-            turtle.setheading(270)
+    passos = 0
+    while (passos < numeroDeslocacoes ):
+        direcao = random.randint(0,3)
+        turtle.setheading(direcao * 90)
+        xFinal = 0
+        yFinal = 0
 
-        turtle.forward(numero_inteiro)
-        
+        if (direcao == 0):
+            xFinal = turtle.xcor() + tamanhoCasa
+        elif (direcao == 2):
+            xFinal = turtle.xcor() - tamanhoCasa
+        elif (direcao == 1):
+            yFinal = turtle.ycor() + tamanhoCasa
+        elif (direcao == 3):
+            yFinal = turtle.ycor() - tamanhoCasa
+
+        if (xFinal <= maxX and xFinal >= minX and yFinal <= maxY and yFinal >= minY ):
+            turtle.forward(tamanhoCasa)
+            passos+= 1
+
         print(turtle.position())
-        
-        if (turtle.xcor() < (-(dimensao/2))):
-            print("A tartaruga vai sair da grelha. Acabou o jogo.")
-            break   
-        elif (turtle.xcor() > (dimensao/2)):
-            print("A tartaruga vai sair da grelha. Acabou o jogo.")
-            break 
-        elif (turtle.ycor() < (-(dimensao/2))):
-            print("A tartaruga vai sair da grelha. Acabou o jogo.")
-            break 
-        elif (turtle.ycor() > (dimensao/2)):
-            print("A tartaruga vai sair da grelha. Acabou o jogo.")
-            break
 
-if (numero_valido != 0):
+
+if (tamanhoInvalido != 0):
     print("Não é possível efetuar a grelha. ")
 else:
-    quadrado(dimensao, numero_inteiro)        
-    posicao()    
-    andar(numero_inteiro)
+    quadrado(dimensao, tamanhoCasa)
+    posicaoInicial()
+    andar(tamanhoCasa)
 
 turtle.exitonclick()
