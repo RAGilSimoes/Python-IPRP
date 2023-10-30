@@ -1,4 +1,3 @@
-
 t_i = float(input("Introduz a temperatura inicial em Celsius: "))
 t_f = float(input("Introduz a temperatura final em Celsius: "))
 m = float(input("Introduz a massa de água que se quer aquecer: "))
