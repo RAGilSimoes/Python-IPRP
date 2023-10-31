@@ -13,7 +13,7 @@ if (n_positivo <= 0) or (n_caracteres < n_positivo):
     
 n_caracteres_maximo= n_caracteres -2    
     
-while (i < n_caracteres_maximo):
+while (i <= n_caracteres_maximo):
     i_depois = i + n_positivo
     cadeia_nova = cadeia[i:i_depois]
     print(cadeia_nova)
