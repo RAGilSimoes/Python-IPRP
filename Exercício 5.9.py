@@ -13,8 +13,8 @@ for i in range(n):
     else:
         impares += 1
         
-percentagem = pares / n
+percentagem = (pares / n) * 100
 
 print("saiu par: ", pares)
 print("saiu impar: ", impares)
-print("A percentagem de vezes em que saiu número par é: ", percentagem)
+print("A percentagem de vezes em que saiu número par é: ", percentagem, "%")
