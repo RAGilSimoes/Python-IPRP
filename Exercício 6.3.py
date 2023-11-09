@@ -4,7 +4,8 @@ lista_nova = []
 
 def alterna(lista_nova, l1, l2):
     for i in range(len(l1)):
-        lista_nova = lista_nova + [l1[i]] + [l2[i]]
+        lista_nova.append(l1[i])
+        lista_nova.append(l2[i])
         
     return lista_nova
         
