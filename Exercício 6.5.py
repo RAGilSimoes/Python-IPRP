@@ -10,7 +10,7 @@ def lancamentos(lista_resultados, percentagem_soma_par, soma_par):
         dado_1 = random.randint(1,6)
         dado_2 = random.randint(1,6)
         
-        lista_resultados = lista_resultados + [dado_1, dado_2]
+        lista_resultados = lista_resultados + [(dado_1, dado_2)]
         
         if ((dado_1 + dado_2) %2 == 0):
             soma_par += 1
